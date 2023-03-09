@@ -40,6 +40,8 @@ let newImg;
 
 index = 0;
 
+
+
 //nuovo elemento per l'immagine
 
 newImg = document.createElement("img");
@@ -90,32 +92,32 @@ thumbnailsElements[index].classList.add("active")
 
 btnRight.addEventListener("click", function(){
     
-    index++
-    
-    if(index == images.length) {
-        index = 0;
-        thumbnailsElements[thumbnailsElements.length - 1].classList.remove("active");
-    } else {
-        thumbnailsElements[index - 1].classList.remove("active");
-    }
-    
-    //aggiorno le immagini all'html
-    
-    newImg.src = images[index].image;
-    
-    newTitle.innerText = images[index].title;
-    
-    newDes.innerText = images[index].text;
-
-
-    thumbnailsElements[index].classList.add("active")
-    
+    rightImage();
+  
 });
 
 //creo il funzionamento del bottone sinistro
 
 btnLeft.addEventListener("click", function(){
     
+leftImage();
+
+});
+
+//creo timer
+
+setInterval(function() {
+
+    rightImage();
+  
+}, 3000);
+
+//function 
+
+//function per spostare le immagini verso sinistra
+
+
+function leftImage() {
     index--;
     
     if(index == - 1) {
@@ -134,4 +136,28 @@ btnLeft.addEventListener("click", function(){
     newDes.innerText = images[index].text;
 
     thumbnailsElements[index].classList.add("active")
-});
+    };
+    
+    //function per spostare le immagini verso sinistra
+
+
+    function rightImage() {
+        index++
+    
+    if(index == images.length) {
+        index = 0;
+        thumbnailsElements[thumbnailsElements.length - 1].classList.remove("active");
+    } else {
+        thumbnailsElements[index - 1].classList.remove("active");
+    }
+    
+    //aggiorno le immagini all'html
+    
+    newImg.src = images[index].image;
+    
+    newTitle.innerText = images[index].title;
+    
+    newDes.innerText = images[index].text;
+
+    thumbnailsElements[index].classList.add("active")
+    }
