@@ -70,6 +70,8 @@ des.append(newDes);
 
 newDes.innerText = images[index].text;
 
+let newImgThumbnails;
+
 //thumbnails
 
 for (const key in images) {
@@ -81,12 +83,31 @@ for (const key in images) {
     thumbnailsContainer.append(newImgThumbnails);
     
     newImgThumbnails.src = images[key].image;
-   
+
+    newImgThumbnails.addEventListener ('click' ,function(){
+
+        for (let key = 0 ; key < images.length ; key++){
+
+            thumbnailsElements[key].classList.remove ('active')
+            
+        }
+
+        newImg.src = images[key].image;
+
+        thumbnailsElements[key].classList.add ('active')
+
+        index = key
+
+    })
+
 }
+
+
 
 //seleziono tutte le thumbnails
 
 let thumbnailsElements = document.querySelectorAll('.thumbnails');
+
 
 //aggiungo la classe active
 
@@ -104,7 +125,7 @@ btnRight.addEventListener("click", function(){
 
 btnLeft.addEventListener("click", function(){
     
-leftImage();
+    leftImage();
 
 });
 
@@ -112,7 +133,7 @@ let i = 0;
 
 let timerInterval;
 
-btnStart.innerText = "Start";
+btnStart.innerText = "Start Autoplay";
 
 
 
@@ -131,32 +152,47 @@ btnRevert.addEventListener("click", function(){
 btnStart.addEventListener("click", function(){
     
     i++;
-
+    
     if(i == 2) {
         i = 0;
     }
     
     if (i == 1) {
-
-        btnStart.innerText = "Stop";
-
+        
+        btnStart.innerText = "Stop Autoplay";
+        
         timerInterval  = setInterval(function() {
             revertOnOff(ib)
         }, 3000);
     } else {
-        btnStart.innerText = "Start";
+        btnStart.innerText = "Start Autoplay";
         clearInterval(timerInterval);
     }
 });
 
 function revertOnOff(onOff) {
-
+    
     if(onOff == 1) {
         return leftImage()
     } else if( onOff == 0) {
         return rightImage()
     }
 }
+
+
+//creo funzionamento che cliccando sull'anteprima aggiorna l'immagine principale
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -167,6 +203,12 @@ function revertOnOff(onOff) {
 //function 
 
 //function per spostare le immagini verso sinistra
+
+function indexQuary(listElement){
+    for(ia = 0; ia < listElement.length; ia++) {
+        listElement[ia]
+    }
+}
 
 
 function leftImage() {

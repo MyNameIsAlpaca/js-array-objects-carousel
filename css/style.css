@@ -62,9 +62,27 @@
    height: 100px;
    object-fit: cover;
    opacity: 0.5;
+   cursor: pointer;
 }
 
 .active {
     border: rgba(9, 255, 0, 0.822) 3px solid;
     opacity: 1;
+}
+
+.command {
+    max-width: 1000px;
+    margin: auto;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#btn-start, #btn-revert {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid green;
+    border-radius: 10px;
+    cursor: pointer;
 }
