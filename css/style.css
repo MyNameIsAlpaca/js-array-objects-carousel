@@ -7,7 +7,7 @@
 .container{
     max-width: 1000px;
     margin: auto;
-    padding-top: 200px;
+    padding-top: 100px;
 }
 
 .container .img-container {
@@ -50,4 +50,21 @@
     color: white;
     font-size: 20px;
     text-align: right;
+}
+
+#thumbnails {
+    display: flex;
+    background-color: black;
+}
+
+.thumbnails {
+   width: calc(100% / 5);
+   height: 100px;
+   object-fit: cover;
+   opacity: 0.5;
+}
+
+.active {
+    border: rgba(9, 255, 0, 0.822) 3px solid;
+    opacity: 1;
 }

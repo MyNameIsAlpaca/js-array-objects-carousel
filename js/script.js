@@ -64,44 +64,74 @@ des.append(newDes);
 
 newDes.innerText = images[index].text;
 
+//thumbnails
 
+for (const key in images) {
+    
+    newImgThumbnails = document.createElement("img");
+
+    newImgThumbnails.classList.add("thumbnails");
+    
+    thumbnailsContainer.append(newImgThumbnails);
+    
+    newImgThumbnails.src = images[key].image;
+   
+}
+
+//seleziono tutte le thumbnails
+
+let thumbnailsElements = document.querySelectorAll('.thumbnails');
+
+//aggiungo la classe active
+
+thumbnailsElements[index].classList.add("active")
 
 //creo il funzionamento del bottone destro
 
 btnRight.addEventListener("click", function(){
-
+    
     index++
     
     if(index == images.length) {
         index = 0;
+        thumbnailsElements[thumbnailsElements.length - 1].classList.remove("active");
+    } else {
+        thumbnailsElements[index - 1].classList.remove("active");
     }
     
     //aggiorno le immagini all'html
     
     newImg.src = images[index].image;
-
+    
     newTitle.innerText = images[index].title;
-
+    
     newDes.innerText = images[index].text;
+
+
+    thumbnailsElements[index].classList.add("active")
+    
 });
 
 //creo il funzionamento del bottone sinistro
 
 btnLeft.addEventListener("click", function(){
-
-    
-    if(index == 0) {
-        index = 5;
-    };
     
     index--;
-
+    
+    if(index == - 1) {
+        index = thumbnailsElements.length - 1;
+        thumbnailsElements[0].classList.remove("active");
+    } else {    
+        thumbnailsElements[index + 1].classList.remove("active");
+    }
+    
     //aggiorno le immagini all'html
     
     newImg.src = images[index].image;
-
+    
     newTitle.innerText = images[index].title;
-
+    
     newDes.innerText = images[index].text;
-});
 
+    thumbnailsElements[index].classList.add("active")
+});
