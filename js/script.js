@@ -34,6 +34,10 @@ let description = document.getElementById("des");
 
 let thumbnailsContainer = document.getElementById("thumbnails");
 
+let btnStart = document.getElementById("btn-start");
+
+let btnRevert = document.getElementById("btn-revert")
+
 //creo elementi e li appendo
 
 let newImg;
@@ -104,13 +108,37 @@ leftImage();
 
 });
 
-//creo timer
+let i = 0;
 
-setInterval(function() {
+let timerInterval;
 
-    rightImage();
-  
-}, 3000);
+btnStart.addEventListener("click", function(){
+    
+    i++;
+
+    if(i == 2) {
+        i = 0;
+    }
+    
+    if (i == 1) {
+        timerInterval  = setInterval(function() {
+
+            rightImage();
+          
+        }, 3000);
+    } else {
+        clearInterval(timerInterval);
+    }
+});
+
+
+
+
+
+
+
+
+
 
 //function 
 
