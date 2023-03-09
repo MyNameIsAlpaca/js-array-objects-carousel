@@ -112,6 +112,22 @@ let i = 0;
 
 let timerInterval;
 
+btnStart.innerText = "Start";
+
+
+
+let ib = 0;
+
+btnRevert.addEventListener("click", function(){
+    
+    ib++
+    
+    if(ib == 2) {
+        ib = 0;
+    }
+    
+});
+
 btnStart.addEventListener("click", function(){
     
     i++;
@@ -121,18 +137,26 @@ btnStart.addEventListener("click", function(){
     }
     
     if (i == 1) {
-        timerInterval  = setInterval(function() {
 
-            rightImage();
-          
+        btnStart.innerText = "Stop";
+
+        timerInterval  = setInterval(function() {
+            revertOnOff(ib)
         }, 3000);
     } else {
+        btnStart.innerText = "Start";
         clearInterval(timerInterval);
     }
 });
 
+function revertOnOff(onOff) {
 
-
+    if(onOff == 1) {
+        return leftImage()
+    } else if( onOff == 0) {
+        return rightImage()
+    }
+}
 
 
 
