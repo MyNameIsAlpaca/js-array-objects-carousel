@@ -3,3 +3,51 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.container{
+    max-width: 1000px;
+    margin: auto;
+    padding-top: 200px;
+}
+
+.container .img-container {
+    height: 500px;
+    width: 1000px;
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.container .img-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.btn {
+    color: white;
+    top: 50%;
+    font-size: 40px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 139, 0.39);
+    padding: 5px;
+    border-radius: 25px;
+}
+
+#btn-left {
+    position: absolute;
+}
+
+#btn-right {
+    position: absolute;
+    right: 0px;
+}
+
+#des {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    font-size: 20px;
+    text-align: right;
+}
