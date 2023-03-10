@@ -96,6 +96,10 @@ for (const key in images) {
 
         thumbnailsElements[key].classList.add ('active')
 
+        newTitle.innerText = images[key].title;
+    
+        newDes.innerText = images[key].text;
+
         index = key
 
     })
